@@ -19,8 +19,10 @@
 >_python3 manage.py runserver_
 
 **To create DB and tables Deployment into database**
->_python3 manage.py makemigrations_
+>_python3 manage.py makemigrations_ 
+
 >_python3 manage.py migrate_
+
 >_python3 manage.py runserver_
 
 
