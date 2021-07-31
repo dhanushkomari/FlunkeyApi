@@ -46,11 +46,14 @@
 
 >_print(b)_
 
-## TO UPDATE, the TABLE and BOT use the following links.
+## TO UPDATE the TABLE and BOT APIs, use the following script in python console.
 
 >_requests.post('http://127.0.0.1:8000/api-data/update-bot/2', {'avialable': False})_
 
->_requests.post('http://127.0.0.1:8000/api-data/update-bot/2', {'avialable': False})_
+>_requests.post('http://127.0.0.1:8000/api-data/update-table/2', {'avialable': False})_
+
+~~/update-table/2, here 2 represent the id of the object(bot or table)~~
+
 
 
 
