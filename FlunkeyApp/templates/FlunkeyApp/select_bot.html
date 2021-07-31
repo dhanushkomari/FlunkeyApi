@@ -1,0 +1,16 @@
+{% extends 'FlunkeyApp/base.html' %}
+{% block head %}
+    
+        
+{% endblock %}
+
+{% block content %}
+    {% comment %} {% if qs %}
+        {% for i in qs %}
+            <p><a href="{{i.get_url}}">{{i}}</a></p>
+        {% endfor %}
+    {% endif %} {% endcomment %}
+
+    {% include 'FlunkeyApp/cards.html' %}
+
+{% endblock %}
