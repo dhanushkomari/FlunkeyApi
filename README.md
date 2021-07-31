@@ -2,7 +2,7 @@
 
 ## Installation steps
 
-**Create virtual environment in python by using Following command****
+**Create virtual environment in python by using Following command**
 > _python3 -m venv NameOfTheENvironment_
 
 **Activate the virtual environment**
