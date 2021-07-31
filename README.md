@@ -52,7 +52,7 @@
 
 >_requests.post('http://127.0.0.1:8000/api-data/update-table/2', {'avialable': False})_
 
-~~/update-table/2, here 2 represent the id of the object(bot or table)~~
+/update-table/2, here 2 represent the id of the object(bot or table)
 
 
 
