@@ -37,7 +37,7 @@
 
 ## Handling Api using python requests
 
-### TO GET API DATA, run the following script.
+### TO GET API DATA, run the following script in python console.
 >_import requests_
 
 >_a = request.get("http://127.0.0.1:8000/api-data/latest")_
