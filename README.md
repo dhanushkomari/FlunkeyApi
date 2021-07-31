@@ -12,7 +12,7 @@
 **open terminal and change dir to project folder.**
 
 **install the required libraries using the following command.**
->_pip install -r requirements.txt_
+>_pip3 install -r requirements.txt_
 
 **Change directory to FlunkyProject folder.**
 **Run the Following Commands.**
