@@ -56,6 +56,9 @@
 
 ## Features
 >_ Bot Selection
+
 >_ Table Selection
+
 >_ API Generation
+
 >_ Updation of bot and tables
