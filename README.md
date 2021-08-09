@@ -54,7 +54,7 @@
 
 /update-table/2, here 2 represent the id of the object(bot or table)
 
-### Features
+## Features
 >_Bot Selection_
 
 >_Table Selection_
