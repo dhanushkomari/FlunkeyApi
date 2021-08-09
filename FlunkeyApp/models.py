@@ -93,6 +93,7 @@ class DeliveryFinal(models.Model):
     table_no = models.IntegerField()
     ip = models.CharField(max_length=20)
     port = models.IntegerField(null = True)
+    time = models.IntegerField()
     created_at = models.DateTimeField(auto_now = True)
     food_delivered = models.BooleanField(default = False)
 

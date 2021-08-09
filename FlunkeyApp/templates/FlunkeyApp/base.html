@@ -26,6 +26,8 @@
   <link href="{% static "assets/vendor/remixicon/remixicon.css" %}" rel="stylesheet">
   <link href="{% static "assets/vendor/swiper/swiper-bundle.min.css" %}" rel="stylesheet">
 
+  <link rel="stylesheet" href="{% static "assets/vendor/sweetalert2/dist/sweetalert2.min.css" %}">
+
   <!-- Template Main CSS File -->
   <link href="{% static "assets/css/style.css" %}" rel="stylesheet">
 
@@ -42,8 +44,24 @@
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link scrollto " href="{% url 'FlunkeyApp:select-bot'%}">Home</a></li>
-          <li><a class="nav-link scrollto" href="#">Dashboard</a></li>   
-          <li><a class="nav-link scrollto" href="#">About</a></li> 
+          <li><a class="nav-link scrollto" href="#">Dashboard</a></li>  
+          {% if qs1%}
+          <li class="dropdown"><a href="#"><span>Repair</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              
+              {% for i in qs1 %}
+              <li><a href="{% url 'FlunkeyApp:repair' i.id %}">{{i.name}}</a></li>
+              {% endfor %}
+              
+              
+              
+            </ul>
+          </li>
+          {% endif %}
+
+          <li><a class="nav-link scrollto end-button" href="{% url 'FlunkeyApp:delete-today' %}">End</a></li>
+          
+
 
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -52,6 +70,9 @@
   </header><!-- End Header -->
 
   <main id="main">
+
+
+    
 
     
    
@@ -99,6 +120,7 @@
 
   <!-- Template Main JS File -->
   <script src="{% static "assets/js/main.js" %}"></script>
+
 
 </body>
 

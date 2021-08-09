@@ -1,10 +1,12 @@
 from django.http.response import HttpResponse
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import redirect, render, get_object_or_404
 from .models import Bot, DeliveryFinal, Table, Delivery
 from .serializers import DeliveryFinalSerializer, BotSerializer, TableSerializer
 
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+
+import time
 
 # Create your views here.
 
@@ -12,8 +14,22 @@ from rest_framework.response import Response
 ################    BOT SELECTION VIEW     ######################
 #################################################################
 def selectBot(request):
-    qs = Bot.objects.all().filter(status = True)
-    return render(request, 'FlunkeyApp/select_bot.html', {'qs':qs})
+    qs = Bot.objects.all().filter(avialable = True)
+    qs1 = Bot.objects.all().filter(avialable = False)
+    return render(request, 'FlunkeyApp/select_bot.html', {'qs':qs, 'qs1':qs1})
+#################################################################
+#################################################################
+#################################################################
+
+#################################################################
+###################    BOT REPAIR VIEW     ######################
+#################################################################
+def RepairBot(request, id):
+    obj = Bot.objects.get(id = id)
+    obj.avialable = True
+    obj.save()
+    return redirect('FlunkeyApp:select-bot')
+
 #################################################################
 #################################################################
 #################################################################
@@ -65,6 +81,7 @@ def DeliveryView(request, table):
                                         port = d.port,
                                         food_delivered = False,  
                                         table_no = d.table_no,
+                                        time = time.time()
                                         )
         d1.save()      
     except:
@@ -73,6 +90,15 @@ def DeliveryView(request, table):
     
 
     return render(request, 'FlunkeyApp/delivery.html', {'d1':d1})
+
+
+def DeleteTimeInDeliView(request):
+    obj = DeliveryFinal.objects.latest('pk')
+    obj.time = 0
+    obj.save()
+
+    return redirect('FlunkeyApp:select-bot')
+
 #################################################################
 #################################################################
 #################################################################
@@ -97,9 +123,9 @@ def GetApiView(request):
 #################################################################
 ##################    API DATA FOR PUT METHOD     ###############
 #################################################################
-@api_view(['POST', 'GET'])
-def UpdateBotView(request, id):
-    b = Bot.objects.get(id = id)
+@api_view(['POST'])
+def UpdateBotView(request, bot_no):
+    b = Bot.objects.get(bot_no = bot_no)
     print(b.avialable)
     serializer = BotSerializer(instance = b, data = request.POST)
     
@@ -110,7 +136,7 @@ def UpdateBotView(request, id):
     return Response(serializer.data)    
 
 
-@api_view(['POST', 'GET'])
+@api_view(['POST'])
 def UpdateTableView(request, id):
     t = Table.objects.get(id = id)
     print(t.avialable)
@@ -120,7 +146,9 @@ def UpdateTableView(request, id):
         print('valid serializer')        
         serializer.save()
     print('hiii')
-    return Response(serializer.data)    
+    return Response(serializer.data)
+
+
 
 #################################################################
 #################################################################
