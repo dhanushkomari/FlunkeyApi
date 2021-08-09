@@ -54,11 +54,11 @@
 
 /update-table/2, here 2 represent the id of the object(bot or table)
 
-## Features
->_Bot Selection
+### Features
+>_Bot Selection_
 
->_Table Selection
+>_Table Selection_
 
->_API Generation
+>_API Generation_
 
->_Updation of bot and tables
+>_Updation of bot and tables_
