@@ -37,9 +37,9 @@
 
 ## Handling Api using python requests
 
+
 ### TO GET API DATA, run the following script in python console.
 >_import requests_
-
 >_a = request.get("http://127.0.0.1:8000/api-data/latest")_
 
 >_b = a.json()_
@@ -54,7 +54,8 @@
 
 /update-table/2, here 2 represent the id of the object(bot or table)
 
-
-
-
-
+## Features
+>_ Bot Selection
+>_ Table Selection
+>_ API Generation
+>_ Updation of bot and tables
