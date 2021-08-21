@@ -1,5 +1,6 @@
 from django.http.response import HttpResponse
 from django.shortcuts import redirect, render, get_object_or_404
+from django.contrib import messages
 from .models import Bot, DeliveryFinal, Table, Delivery
 from .serializers import DeliveryFinalSerializer, BotSerializer, TableSerializer
 
@@ -28,6 +29,8 @@ def RepairBot(request, id):
     obj = Bot.objects.get(id = id)
     obj.avialable = True
     obj.save()
+    messages.warning("Bot has been repaired.")
+
     return redirect('FlunkeyApp:select-bot')
 
 #################################################################
